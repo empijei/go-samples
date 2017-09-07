@@ -1,5 +1,6 @@
 # Name
-BINARY=nipty
+BINARY=Cli
+IMPORTPATH=`go list`/
 
 # Variables
 VERSION=0.2.0
@@ -9,7 +10,7 @@ FLAG_RELEASE=Release
 FLAG_DEBUG=Debug
 FLAG_TEST=Test
 LDFLAG=-ldflags
-LDBASEFLAGS=-X main.Version=${VERSION} -X main.Commit=${COMMIT} -X main.Build=
+LDBASEFLAGS=-X ${IMPORTPATH}cli.Version=${VERSION} -X ${IMPORTPATH}cli.Commit=${COMMIT} -X ${IMPORTPATH}cli.Build=
 
 .DEFAULT_GOAL: ${BINARY}
 
